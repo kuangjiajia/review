@@ -74,3 +74,33 @@ ln 源地址 目标地址
  删除原文件，软链接不能用
  源文件记得写绝对路径
 
+
+locate (只能搜索文件)
+emmm... 速度快
+
+locate 文件名
+搜索是在 /var/lib/mlocate中去搜索，新创建的文件可能搜不到
+
+updatedb 强制更新mlocate
+
+
+搜索规则定义在/etc/updatedb.conf文件中
+
+whereis(只能搜索可执行文件)
+-b 只看可执行文件
+-m 只看帮助文档
+// 只能搜索系统命令
+
+which
+
+whereis which 搜索变量的路径依赖$PATH
+
+find(能文件也能可执行文件) 运行特别的慢
+find [搜索范围] [搜索条件]
+要模糊查询的话需要通配符 
+
+-iname
+-user
+-nouser
+
+<!-- find /root user root -->
