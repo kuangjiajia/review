@@ -103,4 +103,72 @@ find [搜索范围] [搜索条件]
 -user
 -nouser
 
+-mtime 修改文件内容
+-ctime 改变文件属性
+-atime 文件访问时间
++10 10天前修改的文件
+-10 10天内修改的文件
+10 10天当天   
+
+-size 
++15k
+-15k
+k小写
+M大写
+
+find . inum 节点号 
+
 <!-- find /root user root -->
+<!-- find /root -mtime +10 -->
+<!-- find . size +26k -->
+
+find /root -size +20k -a -size -50k 
+-a 逻辑与
+-o 逻辑或
+
+-exec 内容 {} \;
+
+
+find /root -name kjj exec rm -rf {} \;
+
+grep 
+-i 忽略大小写
+-v 排除制定字符串  
+grep [选项] 字符串 文件名
+
+
+帮助命令
+man 
+--help
+
+info
+-n 下一个 
+-p 上一个
+回车
+
+
+help
+
+
+压缩
+zip 压缩文件名 源文件名
+zip -r 压缩文件名 源文件名
+
+gunzip 
+zip -d 
+
+gzip 只能压缩文件
+gzip xxx
+gzip -c xxx > xxx
+
+tar -cvf 打包文件名 源文件
+tar -cvf jp.tar jp
+
+gzip -d jp.tar jp
+
+bzip2 jp.tar
+
+tar -xvf jp.tar
+
+-zcvf 压缩包名为.tar.gz源文件
+-zxcf 解压缩包名为.tar.gz的文件
