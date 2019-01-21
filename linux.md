@@ -172,3 +172,27 @@ tar -xvf jp.tar
 
 -zcvf 压缩包名为.tar.gz源文件
 -zxcf 解压缩包名为.tar.gz的文件
+
+-jxvf 压缩包名为.tar.bz2源文件
+-jxcf 解压缩包名为.tar.bz2的文件
+
+tar -jxvf jp.tar.bz2 -C /tmp/
+
+
+shutdown -r 05:30 &
+shutdown -c 取消
+shutdown -h 关机
+
+reboot
+init 6
+
+ 
+mount
+mount -a 
+mount -o remonut,noexec 地址 限制权限用的
+
+unmount
+
+
+w
+who
