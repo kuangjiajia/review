@@ -4,10 +4,13 @@ function ajax() {
 
 ajax() 
 
-
+kuangjiajia
 console.log(12311231)
 
 
 function test() {
-
+	console.log("this is test")
 }
+
+test()
+kuangjiajia
