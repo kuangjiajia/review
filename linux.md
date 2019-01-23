@@ -196,3 +196,8 @@ unmount
 
 w
 who
+
+
+df
+df -a
+df -l
