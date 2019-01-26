@@ -68,6 +68,12 @@ docker exec -t 6f6a0108c889 ls -l /tmp
 
 docker cp id:dir targetDir
 
+docker commit 
+
+docker run -it -p 8888:8080 tomcat
+
+docker run -it -P tomcat
+
 
 --no-trunc 
 -s
