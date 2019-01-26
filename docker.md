@@ -54,6 +54,21 @@ docker rm xxx
 
 docker rm -f $(docker ps -a -q)
 
+docker run -d centos
+
+docker logs -t [-f] id
+
+dcoker inspect id
+
+ctrl + p + q
+
+docker attach id 进入容器
+
+docker exec -t 6f6a0108c889 ls -l /tmp
+
+docker cp id:dir targetDir
+
+
 --no-trunc 
 -s
 --automated
