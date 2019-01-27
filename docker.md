@@ -74,7 +74,19 @@ docker run -it -p 8888:8080 tomcat
 
 docker run -it -P tomcat
 
+docker run -it -v /myDataValume:/dataValumeContainer[:ro] centos
 
 --no-trunc 
 -s
 --automated
+
+docker run -it --name kjj2 --volumes-from ecstatic_leakey kjj/centos
+
+
+dockerfile
+
+1.编写dockerfile文件
+2.然后docker build,成为images
+3.run
+
+
