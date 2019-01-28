@@ -90,3 +90,4 @@ dockerfile
 3.run
 
 
+docker history
