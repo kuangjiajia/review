@@ -271,20 +271,247 @@
 // console.log((foo.bar, foo.bar)())
 
 
-function Foo() {
-  getName = function () {
-    console.log(1)
+// function Foo() {
+//   getName = function () {
+//     console.log(1)
+//   }
+//   console.log(this)
+//   return this
+// }
+
+// Foo.prototype.getName = function () {
+//   console.log(3)
+// }
+
+// function getName() {
+//   console.log(5)
+// }
+
+// new Foo().getName()
+
+var name = "window"
+
+var person1 = {
+  name: "person1",
+  show1: function () {
+    console.log(this.name)
+  },
+  show2: () => {
+    console.log(this.name)
+  },
+  show3: function () {
+    return function () {
+      console.log(this.name)
+    }
+  },
+  show4: function () {
+    return () => {
+      console.log(this.name)
+    }
+  },
+  show5: () => {
+    return () => {
+      console.log(this.name)
+    }
+  },
+  show6: () => {
+    return function () {
+      console.log(this.name)
+    }
+  },
+  show7: function () {
+    var fn = function () {
+      console.log(this.name)
+    }
+    return fn
+  },
+  show8: function () {
+    var fn = function () {
+      console.log(this.name)
+    }
+    return fn()
+  },
+  show9: function () {
+    var fn = () => {
+      console.log(this.name)
+    }
+    return fn
   }
-  console.log(this)
-  return this
 }
 
-Foo.prototype.getName = function () {
-  console.log(3)
+var person2 = {
+  name: "person2"
 }
 
-function getName() {
-  console.log(5)
-}
+// person1.show1()
+// person1.show1.call(person2)
 
-new Foo().getName()
+// person1.show2()
+// person1.show2.call(person2)
+
+// person1.show3()()
+// person1.show3().call(person2)
+// person1.show3.call(person2)()
+
+// person1.show4()()
+// person1.show4().call(person2)
+// person1.show4.call(person2)()
+
+// person1.show5()()
+// person1.show5().call(person2)
+// person1.show5.call(person2)()
+
+// person1.show6()()
+// person1.show6().call(person2)
+// person1.show6.call(person2)()
+
+// person1.show7()()
+// person1.show8()
+// person1.show9()()
+
+
+
+// function Foo() {
+//   getName = function () {
+//     console.log(1)
+//   }
+//   return this
+// }
+// Foo.getName = function () {
+//   console.log(2)
+// }
+// Foo.prototype.getName = function () {
+//   console.log(3)
+// }
+// var getName = function () {
+//   console.log(4)
+// }
+// function getName() {
+//   console.log(5)
+// }
+
+// Foo.getName()
+// getName()
+// Foo().getName()
+// getName()
+// new Foo.getName()
+// new Foo().getName()
+// new new Foo().getName()
+
+
+//执行上下文
+
+// var scope = "global scope"
+// function checkscope() {
+//   var scope = "local scope"
+//   function f() {
+//     return scope
+//   }
+//   return f()
+// }
+// console.log(checkscope())
+
+// function checkscope() {
+//   var scope = "local scope"
+//   function f() {
+//     return scope
+//   }
+//   return f
+// }
+// console.log(checkscope()())
+
+// function test() {
+//   var a = 10
+//   delete a
+//   return a
+// }
+
+// console.log(test())
+
+
+//call apply
+
+// var foo = {
+//   value: 1
+// }
+// function bar() {
+//   console.log(this.value)
+// }
+
+// bar.call(foo)
+
+// var foo = {
+//   value: 1,
+//   bar: function () {
+//     console.log(this.value)
+//   }
+// }
+
+// foo.bar()
+
+// var foo = {
+//   value: 1,
+//   age: 29
+// }
+
+// Function.prototype.call2 = function (context) {
+//   var that = this
+//   context.fn = that
+//   context.fn()
+//   delete context.fn
+// }
+
+// function bar() {
+//   console.log(this.value)
+//   console.log(this.age)
+// }
+
+// bar.call2(foo)
+
+// function bar(name, age) {
+//   console.log("say: " + this.say)
+//   console.log("name: " + name)
+//   console.log("age: " + age)
+// }
+
+// Function.prototype.call3 = function (context, ...args) {
+//   context.fn = this
+//   context.fn(...args)
+//   delete context.fn
+// }
+
+// var foo = {
+//   say: "kuangjiajia"
+// }
+
+// bar.call3(foo, "kuangjunjia", 20)
+
+// Function.prototype.call4 = function (context, ...args) {
+//   if (context === null) {
+//     this()
+//     return
+//   }
+//   context.fn = this
+//   context.fn(...args)
+//   delete context.fn
+// }
+
+// var value = 123
+
+// function bar() {
+//   console.log(this.value)
+// }
+
+// bar.call4(null)
+
+// function demo() {
+//   console.log(123)
+//   return function () {
+//     console.log(456)
+//   }
+// }
+
+// (new demo())()
+
+
+
