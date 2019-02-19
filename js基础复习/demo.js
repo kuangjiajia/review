@@ -514,4 +514,176 @@ var person2 = {
 // (new demo())()
 
 
+//apply
 
+// Function.prototype.apply1 = function (context, arr) {
+//   if (null) {
+//     this()
+//     return
+//   }
+//   context.fn = this
+//   const result = context.fn(...arr)
+//   delete context.fn
+//   return result
+// }
+
+// function bar() {
+//   console.log(this.name)
+//   console.log(arguments)
+// }
+
+// var foo = {
+//   name: "kuangjiajia"
+// }
+
+// bar.apply1(foo, [123, 456])
+
+
+//bind
+
+// Function.prototype.bind1 = function (context) {
+//   var fn = this
+//   return function () {
+//     fn.call(context)
+//   }
+// }
+
+// function foo() {
+//   console.log(this.name)
+// }
+
+// var foo2 = foo.bind1({
+//   name: "kuangjiajia"
+// })
+
+// foo2()
+
+
+// Function.prototype.bind2 = function (context, ...args1) {
+//   var fn = this
+//   return function (...args2) {
+//     fn.call(context, ...args1, ...args2)
+//   }
+// }
+
+// function foo() {
+//   console.log(this.name)
+//   console.log(arguments)
+// }
+
+// var foo2 = foo.bind2({
+//   name: "kjj"
+// }, 213, 213, 213)
+
+// foo2(456, 456, 465)
+
+
+// Function.prototype.bind3 = function (context, ...args1) {
+//   var fn = this
+//   var fNOP = function () { }
+//   var fBound = function (...args2) {
+//     fn.call(context, ...args1, ...args2)
+//   }
+//   fNOP.prototype = fn.prototype
+//   fBound.prototype = new fNOP()
+//   return fBound
+// }
+
+
+function Otaku(name, age) {
+  this.name = name
+  this.age = age
+  this.habit = "Games"
+}
+
+Otaku.prototype.strength = 60
+
+Otaku.prototype.sayYourName = function () {
+  console.log("I'm " + this.name)
+}
+
+// var person = new Otaku("kevin", 18)
+
+// console.log(person.name)
+// console.log(person.habit)
+// console.log(person.strength)
+
+// person.sayYourName()
+
+// function ObjectFactory(fn, ...args) {
+//   var obj = new Object()
+//   obj.__proto__ = fn.prototype
+//   let ret = fn.call(obj, ...args)
+//   return typeof ret === "object" ? ret : obj
+// }
+
+// function Person(name, age) {
+//   this.name = name
+//   this.age = age
+// }
+
+// var kjj = ObjectFactory(Person, "kuangjiajia", 10)
+
+// console.log(kjj)
+
+// function Animal(name, age) {
+//   this.name = name
+//   this.age = age
+//   return {
+//     hobby: "sleep"
+//   }
+// }
+
+// function Animal2(name, age) {
+//   this.name = name
+//   this.age = age
+//   return "lx"
+// }
+
+// var dog = new Animal("dog", 10)
+// console.log(dog)
+// var cat = new Animal2("dog", 10)
+// console.log(cat)
+
+// var arrayLike = {
+//   "0": "kjj",
+//   "1": "zzx",
+//   "length": 3
+// }
+
+// console.log(Array.prototype.slice.call(arrayLike, 0))
+// console.log(Array.from(arrayLike))
+
+
+// function foo(name, age) {
+//   console.log(arguments)
+//   console.log(arguments.callee)
+// }
+// foo("kjj", 20)
+
+// var data = []
+// for (var i = 0; i < 5; i++) {
+//   (data[i] = function () {
+//     console.log(arguments.callee.i)
+//   }).i = i
+// }
+
+// data[1]()
+
+// function createPerson(name, age) {
+//   return {
+//     name,
+//     age
+//   }
+// }
+
+// var kjj = createPerson("kjj", 10)
+// console.log(kjj)
+
+function Person(name, age) {
+  this.name = name
+  this.age = age
+}
+
+var kjj = new Person("kjj", 20)
+console.log(kjj)
