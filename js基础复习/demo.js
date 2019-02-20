@@ -773,51 +773,51 @@ Otaku.prototype.sayYourName = function () {
 
 
 
-new Promise(resolve => {
-  console.log(1)
-  setTimeout(() => {
-    console.log(9)
-  })
-  resolve(2)
-}).then(res => {
-  console.log(res)
-  process.nextTick(() => {
-    console.log(14)
-  })
-  new Promise(resolve => {
-    console.log(3)
-    resolve(4)
-  }).then(res => {
-    console.log(res)
-  })
-})
+// new Promise(resolve => {
+//   console.log(1)
+//   setTimeout(() => {
+//     console.log(9)
+//   })
+//   resolve(2)
+// }).then(res => {
+//   console.log(res)
+//   process.nextTick(() => {
+//     console.log(14)
+//   })
+//   new Promise(resolve => {
+//     console.log(3)
+//     resolve(4)
+//   }).then(res => {
+//     console.log(res)
+//   })
+// })
 
-setTimeout(() => {
-  console.log(5)
-  new Promise(resolve => {
-    console.log(6)
-    resolve(7)
-  }).then(res => {
-    console.log(res)
-  })
-  setTimeout(() => {
-    console.log(8)
-  })
-})
+// setTimeout(() => {
+//   console.log(5)
+//   new Promise(resolve => {
+//     console.log(6)
+//     resolve(7)
+//   }).then(res => {
+//     console.log(res)
+//   })
+//   setTimeout(() => {
+//     console.log(8)
+//   })
+// })
 
 
-setTimeout(() => {
-  console.log(10)
-  new Promise(resolve => {
-    console.log(11)
-    resolve(12)
-  }).then(res => {
-    console.log(res)
-  })
-  setTimeout(() => {
-    console.log(13)
-  })
-})
+// setTimeout(() => {
+//   console.log(10)
+//   new Promise(resolve => {
+//     console.log(11)
+//     resolve(12)
+//   }).then(res => {
+//     console.log(res)
+//   })
+//   setTimeout(() => {
+//     console.log(13)
+//   })
+// })
 
 // 1
 // 2
@@ -836,3 +836,165 @@ setTimeout(() => {
 // 12
 // 8
 // 13
+
+
+// function Person(name) { }
+
+// Person.prototype.name = "kevin"
+// Person.prototype.getName = function () {
+//   console.log(this.name)
+// }
+
+// var person1 = new Person()
+// console.log(person1)
+
+
+
+// function Person(name) { }
+
+// Person.prototype = {
+//   name: 'kevin',
+//   getName: function () {
+//     console.log(this.name)
+//   },
+//   constructor: Person
+// }
+
+// var person1 = new Person()
+// console.log(person1)
+
+
+// function Person(name) {
+//   this.name = name
+// }
+
+// Person.prototype.sayName = function () {
+//   console.log(this.name)
+// }
+
+// var person1 = new Person("kjj")
+
+// person1.sayName()
+
+
+// function Person(name) {
+//   this.name = name
+//   if (typeof this.getName !== "function") {
+//     Person.prototype = {
+//       constructor: Person,
+//       getName: function () {
+//         console.log(this.name)
+//       }
+//     }
+//   }
+// }
+
+// var person1 = new Person("zzx")
+// var person2 = new Person("lx")
+
+// person1.getName()
+// person2.getName()
+
+// function Person(name, age) {
+//   return {
+//     name,
+//     age
+//   }
+// }
+
+// var person1 = new Person("kjj", 20)
+// console.log(person1.name)
+
+//继承
+
+// function Parent() {
+//   this.name = "zzx"
+//   this.arr = [1, 2, 3]
+// }
+
+// Parent.prototype.sayName = function () {
+//   console.log(this.name)
+// }
+
+// function Child() { }
+
+// Child.prototype = new Parent()
+
+// var child1 = new Child()
+// var child2 = new Child()
+
+// child2.arr.push("zzx")
+
+// console.log(child1)
+
+
+// function Parent() {
+//   this.names = ["kjj", "llp"]
+// }
+
+// Parent.prototype.sayName = function () {
+//   console.log(this.names)
+// }
+
+// function Child() {
+//   Parent.call(this)
+// }
+
+// Child.prototype = new Parent()
+// Child.prototype.constructor = Child
+
+// var child1 = new Child()
+
+// child1.sayName()
+// console.log(child1)
+
+
+// function Person(o) {
+//   var Fn = function () { }
+//   Fn.prototype = o
+//   return new Fn()
+// }
+
+// var person1 = new Person({
+//   name: "kjj"
+// })
+
+// console.log(person1)
+
+
+// function Person(o) {
+//   var clone = Object.create(o)
+//   clone.sayName = function () {
+//     console.log(this.name)
+//   }
+//   return clone
+// }
+
+// var kjj = new Person({
+//   name: "kjj"
+// })
+// console.log(kjj)
+
+
+function Person(name) {
+  this.name = name
+}
+
+Person.prototype.sayName = function () {
+  console.log(this.name)
+}
+
+function Child(name, age) {
+  Person.call(this, name)
+  this.age = age
+}
+
+function tmpFn() { }
+tmpFn.prototype = Person.prototype
+
+Child.prototype = new tmpFn()
+
+tmpFn.constructor = Child
+
+var child1 = new Child("kjj", 20)
+child1.sayName()
