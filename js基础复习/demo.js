@@ -680,10 +680,159 @@ Otaku.prototype.sayYourName = function () {
 // var kjj = createPerson("kjj", 10)
 // console.log(kjj)
 
-function Person(name, age) {
-  this.name = name
-  this.age = age
-}
+// function Person(name, age) {
+//   this.name = name
+//   this.age = age
+// }
 
-var kjj = new Person("kjj", 20)
-console.log(kjj)
+// var kjj = new Person("kjj", 20)
+// console.log(kjj)
+
+// async function async1() {
+//   console.log('async1 start');
+//   await async2();
+//   console.log('async1 end');
+// }
+// async function async2() {
+//   console.log('async2');
+// }
+// console.log('script start');
+// setTimeout(function () {
+//   console.log('setTimeout');
+// }, 0)
+// async1();
+// new Promise(function (resolve) {
+//   console.log('promise1');
+//   resolve();
+// }).then(function () {
+//   console.log('promise2');
+// });
+// console.log('script end');
+
+
+// async function async2() {
+//   console.log('async2');
+// }
+
+
+// async function async1() {
+//   console.log("async1 start")
+//   new Promise(resolve => {
+//     resolve(async2())
+//   }).then(_ => {
+//     console.log("async1 end")
+//   })
+// }
+
+
+
+// console.log("script start")
+
+
+// new Promise(_ => {
+//   console.log("async1 start")
+//   new Promise(resolve => {
+//     new Promise(_ => {
+//       console.log("async2")
+//     })
+//     resolve()
+//   }).then(_ => {
+//     new Promise(resolve => {
+//       resolve()
+//     }).then(_ => {
+//       console.log("async1 end")
+//     })
+//   })
+// })
+
+
+// setTimeout(() => {
+//   console.log('setTimeout');
+// })
+
+// new Promise(function (resolve) {
+//   console.log('promise1');
+//   resolve();
+// }).then(_ => {
+//   console.log('promise2');
+// });
+
+// console.log('script end');
+
+
+
+// script start
+// async1 start
+// async2
+// promise1
+// script end
+// promise2 
+// async1 end
+// setTimeout
+
+
+
+
+new Promise(resolve => {
+  console.log(1)
+  setTimeout(() => {
+    console.log(9)
+  })
+  resolve(2)
+}).then(res => {
+  console.log(res)
+  process.nextTick(() => {
+    console.log(14)
+  })
+  new Promise(resolve => {
+    console.log(3)
+    resolve(4)
+  }).then(res => {
+    console.log(res)
+  })
+})
+
+setTimeout(() => {
+  console.log(5)
+  new Promise(resolve => {
+    console.log(6)
+    resolve(7)
+  }).then(res => {
+    console.log(res)
+  })
+  setTimeout(() => {
+    console.log(8)
+  })
+})
+
+
+setTimeout(() => {
+  console.log(10)
+  new Promise(resolve => {
+    console.log(11)
+    resolve(12)
+  }).then(res => {
+    console.log(res)
+  })
+  setTimeout(() => {
+    console.log(13)
+  })
+})
+
+// 1
+// 2
+// 3
+// 4
+// 14
+
+
+// 9
+// 5
+// 6
+// 10
+// 11
+
+// 7
+// 12
+// 8
+// 13
