@@ -989,12 +989,14 @@ function Child(name, age) {
   this.age = age
 }
 
-function tmpFn() { }
-tmpFn.prototype = Person.prototype
+function extend(child, parent) {
+  function fn() { }
+  fn.prototype = parent.prototype
+  fn.prototype.constructor = child
+  child.prototype = new fn()
+}
 
-Child.prototype = new tmpFn()
-
-tmpFn.constructor = Child
+extend(Child, Person)
 
 var child1 = new Child("kjj", 20)
 child1.sayName()
