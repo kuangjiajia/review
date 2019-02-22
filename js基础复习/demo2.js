@@ -503,36 +503,36 @@ function getUserAction() {
 // }
 
 
-function memoize(func) {
-  var _memoize = function () {
-    var cache = _memoize.cache
-    var key = arguments.length + JSON.stringify(arguments)
-    if (key in cache) {
-      return cache[key]
-    } else {
-      return cache[key] = func.apply(this, arguments)
-    }
-  }
-  _memoize.cache = {};
-  return _memoize
-}
+// function memoize(func) {
+//   var _memoize = function () {
+//     var cache = _memoize.cache
+//     var key = arguments.length + JSON.stringify(arguments)
+//     if (key in cache) {
+//       return cache[key]
+//     } else {
+//       return cache[key] = func.apply(this, arguments)
+//     }
+//   }
+//   _memoize.cache = {};
+//   return _memoize
+// }
 
-var count = 0
-function fib(n) {
-  count++
-  if (n <= 1 && n >= 0) {
-    return n
-  }
-  return fib(n - 1) + fib(n - 2)
-}
+// var count = 0
+// function fib(n) {
+//   count++
+//   if (n <= 1 && n >= 0) {
+//     return n
+//   }
+//   return fib(n - 1) + fib(n - 2)
+// }
 
-var memoizeFib = memoize(fib)
+// fib = memoize(fib)
 
-for (var i = 0; i <= 10; i++) {
-  memoizeFib(i)
-}
+// for (var i = 0; i <= 10; i++) {
+//   fib(i)
+// }
 
-console.log(count) // 12
+// console.log(count) // 12
 
 
 // var propValue = function (obj) {
@@ -552,3 +552,92 @@ console.log(count) // 12
 
 // console.log(memoizedAdd(1, 2, 3)) // 6
 // console.log(memoizedAdd(1, 2, 4)) // 6
+
+
+
+// function insertSort(arr) {
+//   var len = arr.length
+//   for (var i = 1; i < len; i++) {
+//     var val = arr[i]
+//     for (var j = i - 1; j >= 0; j--) {
+//       if (arr[j] > val) {
+//         arr[j + 1] = arr[j]
+//       } else {
+//         break
+//       }
+//     }
+//     arr[j + 1] = val
+//   }
+// }
+
+var arr = [1, 3, 4, 3, 5, 2, 1, 3, 4]
+
+// insertSort(arr)
+
+// console.log(arr)
+
+
+// function shuffle(arr) {
+//   for (var i = arr.length; i > 0; i--) {
+//     var j = Math.floor(Math.random() * i);
+//     [arr[j], arr[i - 1]] = [arr[i - 1], arr[j]];
+//   }
+//   return arr
+// }
+
+
+
+// var times = 100000;
+// var res = {};
+
+// for (var i = 0; i < times; i++) {
+//   var arr = shuffle([1, 2, 3]);
+
+//   var key = JSON.stringify(arr);
+//   res[key] ? res[key]++ : res[key] = 1;
+// }
+
+// for (var key in res) {
+//   res[key] = res[key] / times * 100 + '%'
+// }
+
+// console.log(res)
+
+// function insertSort(arr) {
+//   var len = arr.length
+//   for (var i = 1; i < len; i++) {
+//     var tmp = arr[i]
+//     for (var j = i - 1; j >= 0; j--) {
+//       if (arr[j] > tmp) {
+//         arr[j + 1] = arr[j]
+//       } else {
+//         break
+//       }
+//     }
+//     arr[j + 1] = tmp
+//   }
+// }
+
+// insertSort(arr)
+
+
+function quickSort(arr) {
+  var len = arr.length
+  if (len <= 1) {
+    return arr
+  }
+  var tmp = arr[0]
+  var leftArr = []
+  var rightArr = []
+  for (var i = 1; i < len; i++) {
+    if (arr[i] < tmp) {
+      leftArr.push(arr[i])
+    } else {
+      rightArr.push(arr[i])
+    }
+  }
+  return [...quickSort(leftArr), tmp, ...quickSort(rightArr)]
+}
+
+var newArr = quickSort(arr)
+console.log(newArr)
