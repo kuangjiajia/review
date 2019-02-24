@@ -70,25 +70,64 @@ const fetch = require('node-fetch')
 
 
 
-class Math {
-  @log
-  add(a, b) {
-    return a + b;
-  }
-}
 
-function log(target, name, descriptor) {
-  var oldValue = descriptor.value;
-
-  descriptor.value = function (...args) {
-    console.log(`Calling ${name} with`, args);
-    return oldValue.apply(this, args);
-  };
-
-  return descriptor;
-}
-
-const math = new Math();
 
 // Calling add with [2, 4]
-math.add(2, 4);
+
+
+// setTimeout(() => {
+//   console.log('timer1')
+//   Promise.resolve().then(function () {
+//     console.log('promise1')
+//   })
+// }, 0)
+// setTimeout(() => {
+//   console.log('timer2')
+//   Promise.resolve().then(function () {
+//     console.log('promise2')
+//   })
+// }, 0)
+
+
+new Promise(resolve => {
+  console.log(1)
+  setTimeout(() => {
+    console.log(9)
+  })
+  resolve(2)
+}).then(res => {
+  console.log(res)
+  new Promise(resolve => {
+    console.log(3)
+    resolve(4)
+  }).then(res => {
+    console.log(res)
+  })
+})
+
+setTimeout(() => {
+  console.log(5)
+  new Promise(resolve => {
+    console.log(6)
+    resolve(7)
+  }).then(res => {
+    console.log(res)
+  })
+  setTimeout(() => {
+    console.log(8)
+  })
+})
+
+
+setTimeout(() => {
+  console.log(10)
+  new Promise(resolve => {
+    console.log(11)
+    resolve(12)
+  }).then(res => {
+    console.log(res)
+  })
+  setTimeout(() => {
+    console.log(13)
+  })
+})
