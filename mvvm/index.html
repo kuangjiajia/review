@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="root">
+    <div name="kjj">
+      我是匡俊嘉
+      <div name="zzx">他是{{name}}</div>
+      <div>{{kjj.name.age}}</div>
+      <input type="text" v-model="val">
+      {{val}}
+      <div v-text="zzx">哈哈哈哈</div>
+    </div>
+  </div>
+  <script src="./util.js"></script>
+  <script src="./compile.js"></script>
+  <script src="./observer.js"></script>
+  <script src="./watcher.js"></script>
+  <script src="./mvvm.js"></script>
+  <script>
+    var vm = new MVVM({
+      el: "#root",
+      data: {
+        name: "llp",
+        val: "123",
+        kjj: {
+          name: {
+            age: 20
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
