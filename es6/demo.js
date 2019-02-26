@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+// const fetch = require('node-fetch')
 
 // function* gen() {
 //   var url = 'https://api.github.com/users/github';
@@ -146,3 +146,95 @@ const fetch = require('node-fetch')
 
 
 
+
+
+// async function async1() {
+//   console.log('async1 start');
+//   Promise.resolve(async2()).then(() => {
+//     console.log('async1 end');
+//   })
+// }
+// async function async2() {
+//   console.log('async2');
+// }
+
+// console.log('script start');
+
+// setTimeout(function () {
+//   console.log('setTimeout');
+// }, 0)
+
+// async1();
+
+// new Promise(function (resolve) {
+//   console.log('promise1');
+//   resolve();
+// }).then(function () {
+//   console.log('promise2');
+// });
+// console.log('script end');
+
+
+async function async1() {
+  console.log('async1 start');
+  await async2();
+  console.log('async1 end');
+}
+
+
+async function async2() {
+  console.log('async2');
+}
+
+console.log('script start');
+
+setTimeout(function () {
+  console.log('setTimeout');
+}, 0)
+
+// async1();
+
+console.log('script start');
+
+setTimeout(function () {
+  console.log('setTimeout');
+}, 0)
+
+// async1();
+
+new Promise(resolve => {
+  console.log('async1 start');
+  new Promise(_ => {
+    console.log("async2")
+  })
+  resolve()
+}).then(_ => {
+  console.log("async1 end")
+})
+
+new Promise(function (resolve) {
+  console.log('promise1');
+  resolve();
+}).then(function () {
+  console.log('promise2');
+});
+console.log('script end');
+
+new Promise(function (resolve) {
+  console.log('promise1');
+  resolve();
+}).then(function () {
+  console.log('promise2');
+});
+console.log('script end');
+
+
+// new Promise(resolve => {
+//   console.log('async1 start');
+//   new Promise(_ => {
+//     console.log("async2")
+//   })
+//   resolve()
+// }).then(_ => {
+//   console.log("async1 end")
+// })
