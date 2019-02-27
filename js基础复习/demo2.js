@@ -1,11 +1,11 @@
 
-const container = document.querySelector("#container")
+// const container = document.querySelector("#container")
 
-var count = 1
+// var count = 1
 
-function getUserAction() {
-  container.innerHTML = count++
-}
+// function getUserAction() {
+//   container.innerHTML = count++
+// }
 
 // container.onmousemove = getUserAction
 
@@ -570,7 +570,7 @@ function getUserAction() {
 //   }
 // }
 
-var arr = [1, 3, 4, 3, 5, 2, 1, 3, 4]
+// var arr = [1, 3, 4, 3, 5, 2, 1, 3, 4]
 
 // insertSort(arr)
 
@@ -621,23 +621,134 @@ var arr = [1, 3, 4, 3, 5, 2, 1, 3, 4]
 // insertSort(arr)
 
 
-function quickSort(arr) {
-  var len = arr.length
-  if (len <= 1) {
-    return arr
-  }
-  var tmp = arr[0]
-  var leftArr = []
-  var rightArr = []
-  for (var i = 1; i < len; i++) {
-    if (arr[i] < tmp) {
-      leftArr.push(arr[i])
+// function quickSort(arr) {
+//   var len = arr.length
+//   if (len <= 1) {
+//     return arr
+//   }
+//   var tmp = arr[0]
+//   var leftArr = []
+//   var rightArr = []
+//   for (var i = 1; i < len; i++) {
+//     if (arr[i] < tmp) {
+//       leftArr.push(arr[i])
+//     } else {
+//       rightArr.push(arr[i])
+//     }
+//   }
+//   return [...quickSort(leftArr), tmp, ...quickSort(rightArr)]
+// }
+
+// var newArr = quickSort(arr)
+// console.log(newArr)
+
+
+// var maxAreaOfIsland = function (grid) {
+//   var xLen = grid.length
+//   var yLen = grid[0].length
+//   var max = 0
+//   for (var i = 0; i < xLen; i++) {
+//     for (var j = 0; j < yLen; j++) {
+//       var tmp = 0
+//       if (grid[i][j] === 1) {
+//         tmp = findMax(1, grid, i, j, xLen, yLen)
+//       }
+//       if (tmp > max) {
+//         max = tmp
+//       }
+//     }
+//   }
+//   return max
+// };
+
+// var left = -1
+// var right = 1
+// var top = -1
+// var bottom = 1
+// function findMax(max, arr, x, y, xLen, yLen) {
+//   arr[x][y] = 0
+//   if (x >= 0 && x <= (xLen - 1) && y >= 0 && y <= (yLen - 1)) {
+//     if (arr[x + left] && (arr[x + left][y] === 1)) {
+//       max += findMax(1, arr, x + left, y, xLen, yLen)
+//       //left    
+//     }
+//     if (arr[x + right] && (arr[x + right][y] === 1)) {
+//       max += findMax(1, arr, x + right, y, xLen, yLen)
+//       //right     
+//     }
+//     if (arr[x] && (arr[x][y + top] === 1)) {
+//       max += findMax(1, arr, x, y + top, xLen, yLen)
+//       //top
+//     }
+//     if (arr[x] && (arr[x][y + bottom] === 1)) {
+//       max += findMax(1, arr, x, y + bottom, xLen, yLen)
+//       //bottom
+//     }
+//   }
+//   return max
+// }
+
+
+// console.log(maxAreaOfIsland([[1, 1], [1, 0]]))
+
+
+
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+
+
+
+
+
+var longestConsecutive = function (nums) {
+  let len = nums.length
+  var obj = {}
+  for (var i = 0; i < len; i++) {
+    if (!obj[nums[i]]) {
+      obj[nums[i]] = 1
     } else {
-      rightArr.push(arr[i])
+      obj[nums[i]] += 1
     }
   }
-  return [...quickSort(leftArr), tmp, ...quickSort(rightArr)]
-}
+  var max = 0
+  var tmp = 0
+  for (var i = 0; i < len; i++) {
+    if (obj[nums[i]]) {
+      tmp = 1
+      delete obj[nums[i]]
+      if (obj[nums[i] + 1]) {
+        tmp++
+        delete obj[nums[i] + 1]
+        console.log(obj)
+        var j = 2
+        while (obj[nums[i] + j]) {
+          tmp++
+          delete obj[nums[i] + j]
+          j++
+        }
+      }
+      if (obj[nums[i] - 1]) {
+        tmp++
+        delete obj[nums[i] - 1]
+        var j = -2
+        while (obj[nums[i] + j]) {
+          tmp++
+          delete obj[nums[i] + j]
+          j--
+        }
+      }
+    }
 
-var newArr = quickSort(arr)
-console.log(newArr)
+    if (tmp > max) {
+      max = tmp
+    }
+  }
+  return max
+};
+
+
+
+console.log(longestConsecutive([1, 2, 0, 1]))

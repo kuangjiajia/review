@@ -16,6 +16,7 @@ class Watcher {
     let newVal = _.getVal(this.vm, this.expr)
     let oldVal = this.value
     if (newVal !== oldVal) {
+      this.value = newVal
       this.cb(newVal) //watch的callback
     }
   }
