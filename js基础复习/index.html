@@ -13,20 +13,58 @@
     padding: 0;
   }
 
-  #container {
+  /* #container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 50vw;
     background-color: grey;
+  } 
+  */
+
+  #container {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    border-radius: 100px;
   }
 </style>
 
 <body>
+
   <!-- <script src="./demo.js"></script> -->
   <div id="container"></div>
-  <script src="./demo2.js"></script>
+  <!-- <script src="./demo2.js"></script> -->
+  <script>
+    var container = document.querySelector("#container")
+    // async function foo1() {
+    //   await fn("green", 3000)
+    //   await fn("yellow", 1000)
+    //   await fn("red", 2000)
+    //   await foo1()
+    // }
+    // async function fn(color, ms) {
+    //   container.style.backgroundColor = color
+    //   await timer(ms)
+    // }
+    // function timer(ms) {
+    //   return new Promise(resolve => {
+    //     setTimeout(resolve, ms)
+    //   })
+    // }
+
+    // foo1()
+    // sessionStorage.setItem("name", "kuangjiajia")
+    var btn = document.createElement("button")
+    btn.innerHTML = "click"
+    btn.addEventListener("click", () => {
+      // console.log(123)
+      console.log(sessionStorage.getItem("name"))
+    })
+    container.appendChild(btn)
+
+  </script>
 </body>
 
 </html>
