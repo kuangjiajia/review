@@ -1,0 +1,30 @@
+.container {
+  background-color: red;
+}
+
+.left,.right {
+  background-color: pink;
+}
+.main {
+  background-color: skyblue;
+}
+
+
+.container {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+}
+.main {
+    flex-grow: 1;
+}
+.left {
+    /* order: -1; */
+    flex-basis: 60px;
+}
+.right {
+    flex-basis: 60px;
+}
+
+
+

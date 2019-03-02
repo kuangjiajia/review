@@ -110,3 +110,30 @@
 // var reg = /([A-Z])/g
 // console.log(x.replace(reg, '-$1').toLocaleLowerCase())
 
+setTimeout(() => {
+  console.log('timer1')
+  Promise.resolve().then(function () {
+    console.log('promise1')
+  })
+}, 0)
+
+setImmediate(() => {
+  console.log('timer3')
+  Promise.resolve().then(function () {
+    console.log('promise3')
+  })
+})
+
+setImmediate(() => {
+  console.log('timer4')
+  Promise.resolve().then(function () {
+    console.log('promise4')
+  })
+})
+
+setTimeout(() => {
+  console.log('timer2')
+  Promise.resolve().then(function () {
+    console.log('promise2')
+  })
+}, 0)
