@@ -4,7 +4,7 @@ var http = require('http');
 var router = [{
 	path: '*',
 	method: '*',
-	handle: function(req, res) {
+	handle: function (req, res) {
 		res.writeHead(200, {
 			'Content-Type': 'text/plain'
 		});
@@ -15,7 +15,7 @@ var router = [{
 
 exports = module.exports = {
 
-	get: function(path, fn) {
+	get: function (path, fn) {
 		router.push({
 			path: path,
 			method: 'GET',
@@ -24,10 +24,10 @@ exports = module.exports = {
 	},
 
 
-	listen: function(port, cb) {
-		var server = http.createServer(function(req, res) {
-			if(!res.send) {
-				res.send = function(body) {
+	listen: function (port, cb) {
+		var server = http.createServer(function (req, res) {
+			if (!res.send) {
+				res.send = function (body) {
 					res.writeHead(200, {
 						'Content-Type': 'text/plain'
 					});
@@ -35,8 +35,8 @@ exports = module.exports = {
 				};
 			}
 
-			for(var i=1,len=router.length; i<len; i++) {
-				if((req.url === router[i].path || router[i].path === '*') &&
+			for (var i = 1, len = router.length; i < len; i++) {
+				if ((req.url === router[i].path || router[i].path === '*') &&
 					(req.method === router[i].method || router[i].method === '*')) {
 					return router[i].handle && router[i].handle(req, res);
 				}
