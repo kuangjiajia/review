@@ -142,25 +142,46 @@
 //   console.log(item);
 // }
 
-var light = function (type, time) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      console.log(type)
-      resolve()
-    }, time)
-  })
-}
+// var light = function (type, time) {
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       console.log(type)
+//       resolve()
+//     }, time)
+//   })
+// }
 
-var dep = function () {
-  Promise.resolve().then(_ => {
-    return light("green", 1000)
-  }).then(_ => {
-    return light("yellow", 2000)
-  }).then(_ => {
-    return light("red", 3000)
-  }).then(_ => {
-    dep()
-  })
-}
+// var dep = function () {
+//   Promise.resolve().then(_ => {
+//     return light("green", 1000)
+//   }).then(_ => {
+//     return light("yellow", 2000)
+//   }).then(_ => {
+//     return light("red", 3000)
+//   }).then(_ => {
+//     dep()
+//   })
+// }
 
 // dep()
+
+
+// document.addEventListener("click", () => {
+//   console.log("global")
+// }, true)
+
+// document.querySelector("#root").addEventListener("click", () => {
+//   console.log("h1")
+// })
+
+function shuffle(arr) {
+  var len = arr.length
+  for (var i = len - 1; i > 0; i--) {
+    var tmp = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[tmp]] = [arr[tmp], arr[i]]
+  }
+}
+
+var arr = [1, 2, 3, 4, 5]
+shuffle(arr)
+console.log(arr)
