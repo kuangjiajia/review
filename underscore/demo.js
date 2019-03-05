@@ -174,14 +174,51 @@
 //   console.log("h1")
 // })
 
-function shuffle(arr) {
-  var len = arr.length
-  for (var i = len - 1; i > 0; i--) {
-    var tmp = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[tmp]] = [arr[tmp], arr[i]]
-  }
-}
+// function shuffle(arr) {
+//   var len = arr.length
+//   for (var i = len - 1; i > 0; i--) {
+//     var tmp = Math.floor(Math.random() * (i + 1));
+//     [arr[i], arr[tmp]] = [arr[tmp], arr[i]]
+//   }
+// }
 
-var arr = [1, 2, 3, 4, 5]
-shuffle(arr)
-console.log(arr)
+// var arr = [1, 2, 3, 4, 5]
+// shuffle(arr)
+// console.log(arr)
+
+// function equal(obj1, obj2) {
+//   let keys1 = Object.keys(obj1)
+//   let keys2 = Object.keys(obj2)
+//   if (keys1.length !== keys2.length) return false
+//   return keys1.every(key => {
+//     if (typeof obj1[key] === "object") {
+//       if (obj2[key]) {
+//         const val = equal(obj1[key], obj2[key])
+//         if (!val) {
+//           return val
+//         }
+//       } else {
+//         return false
+//       }
+//     } else {
+//       if (obj1[key] !== obj2[key]) {
+//         return false
+//       }
+//     }
+//     return true
+//   })
+// }
+
+// var obj1 = {
+//   name: "kjj",
+//   arr: [1, 2, 3, 4]
+// }
+
+// var obj2 = {
+//   name: "kjj",
+//   arr: [1, 2, 3, 4]
+// }
+
+// console.log(equal(obj1, obj2))
+
+
