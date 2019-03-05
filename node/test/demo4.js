@@ -14,3 +14,5 @@
 // 3: chyingp
 
 console.log(process.cwd())
+console.log(process.version)
+console.log(process.versions)
