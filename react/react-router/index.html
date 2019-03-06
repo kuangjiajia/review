@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <a onClick="go('/a')">pageALink</a>
+  <a onClick="go('/b')">pageBLink</a>
+  <span id='body'></span>
+  <script>
+    function go(pathname) {
+      window.history.pushState({}, null, pathname);
+      document.getElementById('body').innerHTML = window.location;
+    }
+
+    //pushState和replaceState是无法触发popstate事件
+    //这里主要处理浏览器前进后退功能，不加下面的代码就无法实现前进后退功能
+    window.addEventListener('popstate', (e) => {
+      let pathname = window.location;
+      document.getElementById('body').innerHTML = window.location;
+    })
+  </script>
+</body>
+
+</html>

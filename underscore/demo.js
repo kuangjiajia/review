@@ -222,3 +222,17 @@
 // console.log(equal(obj1, obj2))
 
 
+
+function lazyLoad() {
+  const images = document.getElementsByTagName("img")
+  const len = images.length
+  const viewHeight = window.innerHeight
+  for (let i = 0; i < len; i++) {
+    const top = document.getBoundingClientRect().top
+    if ((viewHeight - top) >= 0) {
+      img[i].setAttribute("src", img[i].getAttribute("data-src"))
+    }
+  }
+}
+
+

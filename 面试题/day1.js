@@ -103,6 +103,8 @@ var url = 'http://www.domain.com/?user=anonymous&id=123&id=456&city=%E5%8C%97%E4
 //   return (num + '').replace(/(\d+?)(?=(\d{3})+$)/g, '$1,')
 // }
 
+// var reg = /(\d)(?=(\d{3})+\.)/g
+
 
 // 4.请用js计算出我到底有多少钱（输出Number类型数字，代码尽量简洁，考虑通用情况）
 
@@ -325,5 +327,29 @@ var url = 'http://www.domain.com/?user=anonymous&id=123&id=456&city=%E5%8C%97%E4
 // // 直接 0 1 2 3 4, ... 正确答案是报错 
 
 
+//节流
+// function throttle(fn, interval) {
+//    let time = 0
+//    return (...args) => {
+//       let context = this
+//       let now = +new Date()
+//       if ((now - time) >= interval) {
+//          fn.apply(context, args)
+//          time = now
+//       }
+//    }
+// }
 
+//防抖
 
+// function debounce(fn, delay) {
+//    let timer = null
+//    return (...args) => {
+//       if (timer) {
+//          clearTimeout(timer)
+//       }
+//       timer = setTimeout(() => {
+//          fn(args)
+//       }, delay)
+//    }
+// }
