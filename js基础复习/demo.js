@@ -976,27 +976,33 @@ Otaku.prototype.sayYourName = function () {
 // console.log(kjj)
 
 
-function Person(name) {
-  this.name = name
-}
+// function Person(name) {
+//   this.name = name
+// }
 
-Person.prototype.sayName = function () {
-  console.log(this.name)
-}
+// Person.prototype.sayName = function () {
+//   console.log(this.name)
+// }
 
-function Child(name, age) {
-  Person.call(this, name)
-  this.age = age
-}
+// function Child(name, age) {
+//   Person.call(this, name)
+//   this.age = age
+// }
 
-function extend(child, parent) {
-  function fn() { }
-  fn.prototype = parent.prototype
-  fn.prototype.constructor = child
-  child.prototype = new fn()
-}
+// function extend(child, parent) {
+//   function fn() { }
+//   fn.prototype = parent.prototype
+//   fn.prototype.constructor = child
+//   child.prototype = new fn()
+// }
 
-extend(Child, Person)
+// extend(Child, Person)
 
-var child1 = new Child("kjj", 20)
-child1.sayName()
+// var child1 = new Child("kjj", 20)
+// child1.sayName()
+
+var str = "this is a boy"
+var reg = /\b\w+\b/g
+console.log(str.replace(reg, (...args) => {
+  return args[0].substring(0, 1).toUpperCase() + args[0].substring(1, args[0].length)
+}))
