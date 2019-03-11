@@ -229,3 +229,41 @@ var arr = [1, 3, 5, 3, 2, 3, 1, 2, 3]
 
 // shellSort(arr)
 // console.log(arr)
+
+
+
+// function cret(arr) {
+//   let len = arr.length
+//   let n = Math.floor((len - 1) / 2)
+//   for (let i = n; i >= 0; i--) {
+//     shift(arr, i, len)
+//   }
+// }
+
+// function shift(arr, i, len) {
+//   let left = i * 2 + 1
+//   let right = i * 2 + 2
+//   let index = i
+//   if (arr[left] > arr[index] && left < len) {
+//     index = left
+//   }
+//   if (arr[right] > arr[index] && right < len) {
+//     index = right
+//   }
+//   if (index !== i) {
+//     [arr[index], arr[i]] = [arr[i], arr[index]];
+//     shift(arr, index, len)
+//   }
+// }
+
+// function heapSort(arr) {
+//   cret(arr)
+//   let len = arr.length
+//   for (let i = len - 1; i >= 0; i--) {
+//     [arr[0], arr[i]] = [arr[i], arr[0]];
+//     shift(arr, 0, i)
+//   }
+// }
+
+// heapSort(arr)
+// console.log(arr)
