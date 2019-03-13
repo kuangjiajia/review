@@ -19,12 +19,26 @@
     width: 200px;
     height: 400px;
   }
-</style>
 
+  .app1 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+
+  .app1 .app2 {
+    width: 50px;
+    height: 50px;
+    background-color: skyblue;
+  }
+</style>
 
 <body>
   <div class="container">
-    <div class="img">
+    <div class="app1">
+      <div class="app2"></div>
+    </div>
+    <!-- <div class="img">
       <img class="pic" alt="加载中" data-src="./images/1.jpg">
     </div>
     <div class="img">
@@ -54,7 +68,19 @@
     <div class="img">
       <img class="pic" alt="加载中" data-src="./images/10.png">
     </div>
-  </div>
+  </div> -->
 </body>
+<script>
+  let container = document.querySelector(".container")
+  let app1 = document.querySelector(".app1")
+  let app2 = document.querySelector(".app2")
+
+  app1.addEventListener("click", () => {
+    console.log("app1")
+  }, false)
+  app2.addEventListener("click", () => {
+    console.log("app2")
+  }, false)
+</script>
 
 </html>
