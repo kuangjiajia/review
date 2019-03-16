@@ -354,3 +354,73 @@ var url = 'http://www.domain.com/?user=anonymous&id=123&id=456&city=%E5%8C%97%E4
 //    }
 // }
 
+
+// let fn2 = (() => {
+//    var _ref = _asyncToGenerator(function* () {
+//       console.log(456);
+//    });
+
+//    return function fn2() {
+//       return _ref.apply(this, arguments);
+//    };
+// })();
+
+// let fn1 = (() => {
+//    var _ref2 = _asyncToGenerator(function* () {
+//       console.log(123);
+//       yield fn2();
+//    });
+
+//    return function fn1() {
+//       return _ref2.apply(this, arguments);
+//    };
+// })();
+
+// function _asyncToGenerator(fn) { 
+//    return function () { 
+//       var gen = fn.apply(this, arguments); 
+//       return new Promise(function (resolve, reject) { 
+//          function step(key, arg) { 
+//             try { 
+//                var info = gen[key](arg); 
+//                var value = info.value; 
+//             } catch (error) { 
+//                reject(error); return; 
+//             } 
+//             if (info.done) { 
+//                resolve(value); 
+//             } else { 
+//                return Promise.resolve(value)
+//                      .then(function (value) { 
+//                         step("next", value); 
+//                      }, function (err) { 
+//                         step("throw", err); 
+//                      }); } 
+//                   } return step("next"); 
+//                }); }; }
+
+// require("babel-core").transform("code", options);
+
+
+
+function curry(fn, ...args1) {
+   let argsArr = [...args1]
+   let _curry = function (...args2) {
+      argsArr.push(...args2)
+      return _curry
+   }
+   _curry.toString = function () {
+      return fn(...argsArr)
+   }
+   return _curry
+}
+
+function fn(...args) {
+   return args.reduce((prev, next) => {
+      return prev + next
+   }, 0)
+}
+
+let x = curry(fn, 1, 2, 3)
+let val = x(4, 5, 6)
+console.log(val + 10)

@@ -39,3 +39,23 @@ function createStore(reducer, preloadedState, enhancer) {
 
 
 module.exports = createStore
+
+
+// function createStore(reducer) {
+//   let listeners = []
+//   let state 
+//   let getState = () => {}
+//   let dispatch = action => {
+//     state = reducer(state, action)
+//     listeners.forEach(fn => fn())
+//   }
+//   let subscribe = (fn) => {
+//     listeners.push(fn)
+//   }
+//   dispatch({})
+//   return {
+//     getState,
+//     dispatch,
+//     subscribe
+//   }
+// }

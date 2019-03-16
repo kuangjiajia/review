@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  /* header {
+    width: 800px;
+    height: 120px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: skyblue;
+  }
+
+  div {
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+    background-color: pink;
+  } */
+
+  /* .circle { */
+  /* width: 100px;
+    height: 100px;
+    background-color: #FFB5BF;
+    border-radius: 50%; */
+  /* 或者 50px */
+  /* } */
+
+
+  /* .circle {
+    width: 100px;
+    height: 100px;
+    background-color: #FFB5BF;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  } */
+
+
+  html * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .layout {
+    margin-top: 20px;
+  }
+
+  .layout article div {
+    min-height: 100px;
+  }
+</style>
+
+<body>
+  <!-- <header>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+  </header>
+  <div class="circle"></div> -->
+
+  <section class="layout float">
+    <style>
+      .layout.float .left {
+        float: left;
+        width: 300px;
+        background: red;
+      }
+
+      .layout.float .right {
+        float: right;
+        width: 300px;
+        background: blue;
+      }
+
+      .layout.float .center {
+        background: yellow;
+      }
+    </style>
+    <article class="left-center-right">
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="center">
+        <h1>浮动解决方案</h1>
+        <p>1.这是布局的中间部分</p>
+        <p>2.这是布局的中间部分</p>
+      </div>
+    </article>
+  </section>
+
+
+</body>
+
+</html>

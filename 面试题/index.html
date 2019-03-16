@@ -7,9 +7,141 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+<!-- <style>
+  #draggable {
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    background: white;
+  }
+
+  .dropzone {
+    width: 200px;
+    height: 20px;
+    background: blueviolet;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+</style> -->
 
 <body>
-  <script src="./day2.js"></script>
+  <!-- <div id="root">
+    <div>kjj</div>
+    <ul>
+      <li>123</li>
+      <li>123</li>
+      <li>123</li>
+      <li>123</li>
+      <li>123</li>
+    </ul>
+  </div>
+  <script>
+    let root = document.querySelector("#root")
+    console.log(root.children)
+    console.log(root.childNodes)
+  </script> -->
+
+  <!-- <ul id="myMenu" style="position: absolute;visibility: hidden;background-color: silver">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+  </ul>
+  <script>
+    var menu = document.getElementById('myMenu')
+    document.addEventListener('contextmenu', (event) => {
+      event.preventDefault()
+      menu.style.left = event.clientX + 'px'
+      menu.style.top = event.clientY + 'px'
+      menu.style.visibility = 'visible'
+    }, false)
+    document.addEventListener('click', (event) => {
+      menu.style.visibility = 'hidden'
+    }, false)
+  </script> -->
+  <!-- 
+  <div class="dropzone">
+    <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+      This div is draggable
+    </div>
+  </div>
+  <div class="dropzone"></div>
+  <div class="dropzone"></div>
+  <div class="dropzone"></div>
+  <script>
+    window.onload = function () {
+      var dragged
+
+      document.addEventListener("dragstart", function (event) {
+        dragged = event.target
+        console.log(1)
+      }, false)
+
+      document.addEventListener("dragover", function (event) {
+        // prevent default to allow drop
+        event.preventDefault()
+        console.log(2)
+      }, false)
+
+      document.addEventListener("drop", function (event) {
+        // prevent default action (open as link for some elements)
+        event.preventDefault()
+        console.log(3)
+        if (event.target.className == "dropzone") {
+          dragged.parentNode.removeChild(dragged)
+          event.target.appendChild(dragged)
+        }
+      }, false)
+    }
+  </script> -->
+  <style>
+    body {
+      min-width: 630px;
+    }
+
+    .container {
+      overflow: hidden;
+    }
+
+    .center-container {
+      width: 100%;
+      float: left;
+    }
+
+    .center-container .center {
+      height: 150px;
+      background-color: #94E8FF;
+
+      margin-left: 100px;
+      /* 新添加的属性 */
+      margin-right: 200px;
+      /* 新添加的属性 */
+    }
+
+    .left {
+      width: 100px;
+      height: 150px;
+      background-color: #FFB5BF;
+      float: left;
+      margin-left: -100%;
+    }
+
+    .right {
+      width: 200px;
+      height: 150px;
+      background-color: #8990D5;
+      float: left;
+      margin-left: -200px;
+    }
+  </style>
+
+  <div class="container">
+    <div class="center-container">
+      <div class="center">center</div>
+    </div>
+    <div class="left">left</div>
+    <div class="right">left</div>
+    <div>
+
 </body>
 
 </html>
